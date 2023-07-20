@@ -6,7 +6,8 @@ const shopRouter =require('./router/shop.js')
 const application = express()
 console.log("server is running");
 
-application.use(adminRouter)
+//filtering path - url prefix /admin
+application.use('/admin',adminRouter)
 application.use(shopRouter)
 application.use((request,response,next)=>{
     response.status(404).send('<h3>404 page not found</h3>')
