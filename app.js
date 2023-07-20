@@ -1,27 +1,13 @@
 const express =require('express')
 const bodyParser=require('body-parser')
-
+const adminRouter =require('./router/admin.js')
+const shopRouter =require('./router/shop.js')
 //storing a function to a variable
 const application = express()
-console.log("server is running");
-
+application.use(adminRouter)
+application.use(shopRouter)
 application.use(bodyParser.urlencoded())
-//parsing data from request
-application.get('/add-product',(request,response,next)=>{
-    response.send('<form action="/store-product" method="POST"><h1>Add Product details</h1><input type="text" name ="title"><input type="submit" value="submit"></form>')
-})
-
-application.post('/store-product',(request,response,next)=>{
-    console.log(request.body);
-    response.send('<b>Product Submitted..!</b>')
-})
-
-
-
-
-
-
-
+console.log("server is running");
 
 
 //handling different request & routers
