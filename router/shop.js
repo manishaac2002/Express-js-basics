@@ -1,8 +1,10 @@
 const express =require('express')
+const path =require('path')
+
 const router =express.Router()
 
 router.get('/shop',(request,response)=>{
-    response.send('<h1>Welcome Page</h1>')
+response.sendFile(path.join(__dirname),'../','views','shop.html')
 })
 
 module.exports=router
