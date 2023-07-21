@@ -1,10 +1,11 @@
-const express =require('express')
-const path =require('path')
+const express = require('express')
+const path = require('path')
 
-const router =express.Router()
+const router = express.Router()
 
-router.get('/shop',(request,response)=>{
-response.sendFile(path.join(__dirname),'../','views','shop.html')
+router.get('/', (request, response, next) => {
+    console.log("Hey you");
+    response.sendFile(path.join(__dirname, '../', 'views', 'shop-product.html'))
 })
 
-module.exports=router
+module.exports = router
