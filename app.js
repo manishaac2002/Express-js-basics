@@ -8,6 +8,7 @@ const shopRouter = require('./router/shop.js')
 const application = express()
 console.log("server is running");
 
+application.use(express.static(path.join(__dirname,'public')))
 //filtering path - url prefix /admin
 application.use('/admin', adminRouter)
 application.use(shopRouter)
